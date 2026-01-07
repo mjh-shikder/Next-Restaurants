@@ -31,7 +31,11 @@ export default function RootLayout({ children }) {
             <Link className="btn" href={'/reviews'}>Reviews</Link>
           </div>
         </header>
+
+        <main className="px-5 py-8">
         {children}
+        </main>
+
       </body>
     </html>
   );
