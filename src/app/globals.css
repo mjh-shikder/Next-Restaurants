@@ -25,3 +25,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.btn {
+@apply bg-gray-200 rounded-xl font-bold hover:shadow-2xl hover:shadow-white hover:transform-[scale(1.05)] text-black duration-200 cursor-pointer
+active:bg-white active:transform-[scale(1.01)] active:shadow px-4 py-3 relative z-10
+}
