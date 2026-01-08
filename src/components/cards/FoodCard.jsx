@@ -1,5 +1,7 @@
+import Link from "next/link";
+
 const FoodCard = ({ food, onAddToCart, onViewDetails }) => {
-  const { title, foodImg, price, category } = food;
+  const { title, foodImg, price, category, id } = food;
 
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
@@ -14,17 +16,11 @@ const FoodCard = ({ food, onAddToCart, onViewDetails }) => {
 
       {/* Content */}
       <div className="p-4 bg-stone-50">
-        <h3 className="text-lg font-semibold text-gray-800">
-          {title}
-        </h3>
+        <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
 
-        <p className="text-sm text-gray-500 mt-1">
-          Category: {category}
-        </p>
+        <p className="text-sm text-gray-500 mt-1">Category: {category}</p>
 
-        <p className="text-xl font-bold text-amber-500 mt-2">
-          ৳{price}
-        </p>
+        <p className="text-xl font-bold text-amber-500 mt-2">৳{price}</p>
 
         {/* Buttons */}
         <div className="flex gap-3 mt-4">
@@ -35,12 +31,14 @@ const FoodCard = ({ food, onAddToCart, onViewDetails }) => {
             Add to Cart
           </button>
 
-          <button
+          <Link
+            href={`/foods/${id}`}
             onClick={onViewDetails}
-            className="flex-1 border border-primary text-amber-500 py-2 rounded-lg hover:bg-primary hover:text-stone-700 transition"
+            className="flex-1 text-center border border-primary text-amber-500 py-2 
+            rounded-lg hover:bg-primary hover:text-stone-600 transition"
           >
             View Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>
