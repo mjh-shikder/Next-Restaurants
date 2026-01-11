@@ -1,30 +1,37 @@
 "use client";
 import ReviewCard from "@/components/cards/ReviewCard";
 import React, { useEffect, useState } from "react";
+import ReviewLoading from "./ReviewLoading";
 
 const ReviewsPage = () => {
+  const [loading, setLoading] = useState(true);
 
-const [reviews, setReviews]= useState([])
+  const [reviews, setReviews] = useState([]);
 
-    useEffect(() => {
-        fetch(" https://taxi-kitchen-api.vercel.app/api/v1/reviews")
-            .then(res => res.json())
-        .then(data => setReviews(data.reviews || []))
-    },[])
+  useEffect(() => {
+    fetch(" https://taxi-kitchen-api.vercel.app/api/v1/reviews")
+      .then((res) => res.json())
+        .then((data) => {
+            setReviews(data.reviews || [])
+            setLoading(false)
+        });
+  }, []);
 
-
-    return (
-      <div>
-        <h2 className="text-4xl font-bold">
-          Total Foods <span className="text-amber-500">{reviews.length}</span>{" "}
-        </h2>
-        <div className="grid my-5 grid-cols-3 gap-5 ">
-          {reviews.map((rev) => ( 
-           <ReviewCard SingleReview={rev} key={rev.id}></ReviewCard>
-          ))}
-        </div>
+    if (loading) {
+        return <ReviewLoading></ReviewLoading>
+    }
+  return (
+    <div>
+      <h2 className="text-4xl font-bold">
+        Total Foods <span className="text-amber-500">{reviews.length}</span>{" "}
+      </h2>
+      <div className="grid my-5 grid-cols-3 gap-5 ">
+        {reviews.map((rev) => (
+          <ReviewCard SingleReview={rev} key={rev.id}></ReviewCard>
+        ))}
       </div>
-    );
+    </div>
+  );
 };
 
 export default ReviewsPage;
