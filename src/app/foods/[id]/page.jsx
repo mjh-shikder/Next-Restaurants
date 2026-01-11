@@ -64,7 +64,7 @@ const ViewDetails = async ({ params }) => {
                     target="_blank"
                     className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
                   >
-                    ▶ Watch how it’s made
+                    ▶ Watch how it's made
                   </a>
                 )}
               </div>
