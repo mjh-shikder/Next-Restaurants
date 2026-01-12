@@ -25,7 +25,7 @@ const FoodCard = ({ food, onAddToCart, onViewDetails }) => {
 
         {/* Buttons */}
         <div className="flex gap-3 mt-4">
-         <CartButton></CartButton>
+         <CartButton food={food}></CartButton>
 
           <Link
             href={`/foods/${id}`}
