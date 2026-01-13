@@ -1,5 +1,9 @@
 import React from "react";
 
+export function generateStaticParams() {
+  return [{ id: "53027" }, { id: "52818" }, { id: "53044" }];
+}
+
 const getSingleFood = async (id) => {
   const res = await fetch(
     `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`,
@@ -25,7 +29,7 @@ const ViewDetails = async ({ params }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-200 py-12 px-4">
+    <div className="min-h-screen bg-linear-to-br from-base-100 to-base-200 py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Glass Card */}
         <div className="backdrop-blur-md bg-stone-900 rounded-3xl shadow-xl overflow-hidden">
