@@ -14,7 +14,7 @@ const getFoods = async (search) => {
 };
 
 export const metadata = {
-  title: "Foods",
+  title: "All Foods",
   description: "Best Restaurants in The town",
 };
 
