@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CartButton from "../buttons/CartButton";
+import Image from "next/image";
 
 const FoodCard = ({ food, onAddToCart, onViewDetails }) => {
   const { title, foodImg, price, category, id } = food;
@@ -8,11 +9,19 @@ const FoodCard = ({ food, onAddToCart, onViewDetails }) => {
     <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
       {/* Image */}
       <div className="h-48 w-full overflow-hidden">
-        <img
+        {/* <img
           src={foodImg}
           alt={title}
           className="h-full w-full object-cover hover:scale-105 transition duration-300"
-        />
+        /> */}
+
+        <Image
+          src={foodImg}
+          alt={title}
+          className="h-full w-full object-cover hover:scale-105 transition duration-300"
+          width={300}
+          height={150}
+        ></Image>
       </div>
 
       {/* Content */}
@@ -25,7 +34,7 @@ const FoodCard = ({ food, onAddToCart, onViewDetails }) => {
 
         {/* Buttons */}
         <div className="flex gap-3 mt-4">
-         <CartButton food={food}></CartButton>
+          <CartButton food={food}></CartButton>
 
           <Link
             href={`/foods/${id}`}

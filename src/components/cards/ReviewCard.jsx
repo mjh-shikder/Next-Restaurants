@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Heart } from "lucide-react";
+import Image from "next/image";
 
 const ReviewCard = ({ SingleReview }) => {
    
@@ -14,11 +15,18 @@ const ReviewCard = ({ SingleReview }) => {
     <div className="bg-white rounded-xl shadow-md p-5 max-w-xl">
       {/* User Info */}
       <div className="flex items-center gap-4">
-        <img
+        {/* <img
           src={photo}
           alt={user}
           className="w-12 h-12 rounded-full object-cover"
-        />
+        /> */}
+        <Image
+          src={photo}
+          alt={user}
+          className="w-12 h-12 rounded-full object-cover"
+          width={48}
+          height={48}
+        ></Image>
         <div>
           <h4 className="font-semibold text-gray-800">{user}</h4>
           <p className="text-sm text-gray-500">
@@ -53,7 +61,6 @@ const ReviewCard = ({ SingleReview }) => {
           }`}
         >
           <Heart size={18} fill={like ? "currentColor" : "none"} />
-          
         </button>
       </div>
     </div>
