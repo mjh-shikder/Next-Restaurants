@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "The Flamin Fork",
+  title: {
+    default: "The Flamin Fork",
+    template: "%s | The Flamin Fork",
+  },
   description: "Best Restaurants in The town",
 };
 
