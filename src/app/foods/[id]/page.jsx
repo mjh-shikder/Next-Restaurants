@@ -16,6 +16,22 @@ const getSingleFood = async (id) => {
   return data.details;
 };
 
+export async function generateMetadata({params}) {
+  const { id } = await params;
+   const res = await fetch(
+     `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`,
+     { cache: "no-store" },
+   );
+
+   if (!res.ok) return null;
+
+  const {details={}} = await res.json();
+  return {
+    title: details.title
+  }
+  
+}
+
 const ViewDetails = async ({ params }) => {
   const { id } = await params;
   const food = await getSingleFood(id);

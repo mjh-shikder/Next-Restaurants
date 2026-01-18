@@ -3,7 +3,7 @@ import ReviewsPage from './ReviewPage';
 
 
 export const metadata = {
-  title: "All Reviews",
+  title: {absolute: "Satisfied Users"},
   description: "Best Restaurants in The town",
 };
 
