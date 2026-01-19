@@ -18,3 +18,22 @@ export async function GET(request, {params}) {
 
     return Response.json(result)
 }
+
+
+// Delete Function
+export async function DELETE(request, {params}) {
+    const { id } = await params;
+
+    if (id.length != 24) {
+        return Response.json({
+            status: 400,
+            message: "Id not correct"
+        })
+    }
+
+    const query = {_id: new ObjectId(id)}
+
+   const result = await feedbackCollection.deleteOne(query)
+
+    return Response.json(result)
+}
