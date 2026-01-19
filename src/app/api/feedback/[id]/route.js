@@ -1,9 +1,20 @@
-import { feedback } from "../../route";
+import { connect } from "@/app/lib/dbConnect";
+import { ObjectId } from "mongodb";
 
+const feedbackCollection = connect("FirstNext")
 export async function GET(request, {params}) {
     const { id } = await params;
 
-    const singleFeedback = feedback.find(fd => fd.id == id) || {};
+    if (id.length != 24) {
+        return Response.json({
+            status: 400,
+            message: "Id not correct"
+        })
+    }
 
-    return Response.json({singleFeedback})
+    const query = {_id: new ObjectId(id)}
+
+   const result = await feedbackCollection.findOne(query)
+
+    return Response.json(result)
 }
