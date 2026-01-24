@@ -10,14 +10,14 @@ const FeedbackCard = ({ feedback, onUpdate, onDelete }) => {
       {/* Actions */}
       <div className="flex gap-3">
         <button
-          onClick={() => onUpdate(feedback)}
+          
           className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 transition"
         >
           Update
         </button>
 
         <button
-          onClick={() => onDelete(feedback._id)}
+         
           className="px-4 py-2 rounded-lg bg-red-600 text-white text-sm hover:bg-red-700 transition"
         >
           Delete

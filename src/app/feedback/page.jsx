@@ -1,3 +1,4 @@
+import FeedbackCard from '@/components/cards/FeedbackCard';
 import React from 'react';
 
 export const metadata = {
@@ -18,6 +19,11 @@ const FeedBackPage = async () => {
         <div>
             <div className="">
                 <h2 className='text-2xl font-bold'>{feedback.length} Feedbacks Found</h2>
+                <div className="my-3 space-y-5">
+                    {feedback.map((fd) => (
+                        <FeedbackCard key={fd._id} feedback={fd}></FeedbackCard>
+                    ))}
+                </div>
             </div>
         </div>
     );
