@@ -1,0 +1,26 @@
+import React from 'react';
+
+export const metadata = {
+    title: "feedbacks",
+};
+
+
+const getFeedBack = async () => {
+   const res = await fetch("http://localhost:3000/api/feedback/")
+    return await res.json()
+}
+
+const FeedBackPage = async () => {
+    const feedback = await getFeedBack();
+    console.log(feedback);
+    
+    return (
+        <div>
+            <div className="">
+                <h2 className='text-2xl font-bold'>{feedback.length} Feedbacks Found</h2>
+            </div>
+        </div>
+    );
+};
+
+export default FeedBackPage;

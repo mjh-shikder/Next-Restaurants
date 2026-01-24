@@ -23,9 +23,10 @@ export async function POST(request) {
         })
     }
 
-    const newFeedback = { message, date: new Date().toISOString };
+    const newFeedback = { message, Date: new Date().toISOString};
     
     const result = await feedbackCollection.insertOne(newFeedback)
 
     return Response.json(result)
 }
+

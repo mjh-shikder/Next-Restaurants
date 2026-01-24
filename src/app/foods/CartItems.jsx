@@ -5,7 +5,7 @@ const CartItems = () => {
     const {cart} = use(CartContext)
     return (
         <div>   
-           <span className='font-bold text-amber-500'>{cart.length}</span>  Items Added
+           <span className='font-bold text-amber-500 '>{cart.length}</span>  Items Added
 
             <div className="space-y-5 mt-5 ">
                 {
