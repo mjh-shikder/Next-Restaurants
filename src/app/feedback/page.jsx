@@ -7,7 +7,11 @@ export const metadata = {
 };
 
 const getFeedBack = async () => {
-  const res = await fetch("http://localhost:3000/api/feedback/");
+  const res = await fetch("http://localhost:3000/api/feedback/", {
+    cache: "force-cache",
+    next: {revalidate: 60},
+
+  });
   return await res.json();
 };
 
@@ -18,8 +22,8 @@ const FeedBackPage = async () => {
   return (
     <div>
       <div className="">
-        <h2 className="text-2xl font-bold ">
-          {feedback.length} Feedbacks Found
+        <h2 className="text-2xl font-bold "><span className="text-amber-500">{feedback.length} </span>
+            Feedbacks Found
         </h2>
         <div className="my-7 ">
           <Link href={"/feedback/add"} className="btn ">
