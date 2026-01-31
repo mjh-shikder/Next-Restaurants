@@ -49,6 +49,7 @@ const ViewDetails = async ({ params }) => {
   const { id } = await params;
   const food = await getSingleFood(id);
 
+  // Redirect if Invalid route found.
   if (!food.title) {
     redirect("/foods")
     // return (

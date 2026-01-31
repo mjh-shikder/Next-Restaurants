@@ -18,6 +18,15 @@ const nextConfig = {
         search: '',
       },
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/about',
+        destination: '/',
+        permanent: true,
+      },
+    ]
   }
 };
 
