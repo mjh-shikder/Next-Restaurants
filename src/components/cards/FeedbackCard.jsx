@@ -6,6 +6,7 @@ const FeedbackCard = ({ feedback, onUpdate, onDelete }) => {
 
       {/* ID */}
       <p className="text-xs text-gray-400 mb-4">ID: {feedback?._id}</p>
+    
 
       {/* Actions */}
       <div className="flex gap-3">
